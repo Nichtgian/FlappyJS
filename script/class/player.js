@@ -7,20 +7,22 @@ class Player {
         this.life = 1;
     }
 
-    flap() {
-        this.gravity = -20;
+    calc() {
+        this.fall();
+        this.ground();
     }
 
     render() {
-        this.fall();
-        this.ground();
         ctx.fillRect(this.x, this.y, this.size, this.size);
+    }
+
+    flap() {
+        this.gravity = -25;
     }
 
     fall() {
         this.gravity += map.gravity;
         this.y += this.gravity;
-        console.log(this.y += this.gravity);
     }
 
     ground() {

@@ -1,14 +1,17 @@
 let map = new Map();
 let player = new Player();
+let ob = new Object(200, 200, 50, 400);
 
 
 function update() {
-    console.log("ss");
+    player.calc();
 }
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.render();
+    ob.render();
+
 }
 
 /*let map = new World();

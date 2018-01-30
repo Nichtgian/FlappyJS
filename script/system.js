@@ -18,7 +18,7 @@ texture.player.src = "./texture/player.png";
 texture.life.src = "./texture/life.png";
 
 texture.life.onload = function () {
-    ctx.drawImage(texture.sky, 0, 0);
+    Game.interval = setInterval(Game.run, 1000 / Game.fps);
 }
 
 let Game = {
@@ -32,4 +32,3 @@ Game.run = function() {
     draw();
 }
 
-Game.interval = setInterval(Game.run, 1000 / Game.fps);

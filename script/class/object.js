@@ -1,11 +1,11 @@
 class Object {
     constructor(x, space, min, max) {
         this.x = x;
-        this.speed = 10;
+        this.speed = 5;
         this.hit = false;
         this.height = this.getHeight(min, max);
         this.space = this.getSpace(space);
-        this.width = this.getWidth();
+        this.width = 100;
     }
 
     getHeight(minHeight, maxHeight) {
@@ -16,7 +16,12 @@ class Object {
         return Math.floor(Math.random() * 400) + space;
     }
 
-    getWidth() {
-        return Math.floor(Math.random() * 200) + 70;
+    move() {
+        this.x -= this.speed;
+    }
+
+    render() {
+        ctx.fillRect(this.x, 0, this.width, this.height);
+        ctx.fillRect(this.x, this.height + this.space, this.width, canvas.height - (this.height + this.space));
     }
 }
