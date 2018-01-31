@@ -15,7 +15,7 @@ class Map {
     }
 
     render() {
-        this.renderSky();
+        this.renderScore();
         this.renderGround();
     }
 
@@ -31,6 +31,12 @@ class Map {
         for (let i = 0; i < this.ground.blocks.length; i++) {
             ctx.drawImage(ground, this.ground.blocks[i], canvas.height / 100 * 95, ground.width, canvas.height / 100 * 5);
         }
+    }
+
+    renderScore() {
+        ctx.fillStyle = "white";
+        ctx.font = "60px Arial";
+        ctx.fillText(player.score, canvas.width - 100, 100);
     }
 
     initSky() {

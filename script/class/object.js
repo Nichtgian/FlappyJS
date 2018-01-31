@@ -16,20 +16,39 @@ class Object {
         return Math.floor(Math.random() * (canvas.height / 100 * space)) + player.size * 5;
     }
 
-    move() {
+    colide() {
         for (let i = 0; i < object.length; i++) {
-            object[i].x -= object[i].speed;
-            if (object[i].x < 0 - object[i].width) {
-                object.shift();
-                object.push(new Object(canvas.width, 20, 5, 70));
+            let obj = object[i];
+            if (!obj.hit) {
+                if (player.x + player.size >= obj.x && player.x + player.size <= obj.x + obj.width) {
+                    if (player.y <= obj.height || player.y + player.size >= obj.height + obj.space) {
+                        obj.hit = true;
+                    }
+                }
             }
         }
     }
 
+    move() {
+        for (let i = 0; i < object.length; i++) {
+            let obj = object[i];
+            obj.x -= obj.speed;
+            if (obj.x < 0 - obj.width) {
+                if (!obj.hit) {
+                    player.score++;
+                }
+                object.shift();
+                object.push(new Object(canvas.width, 20, 5, 70));
+            }
+        }
+        this.colide();
+    }
+
     render() {
         for (let i = 0; i < object.length; i++) {
-            ctx.drawImage(texture.upper, object[i].x, 0, object[i].width, object[i].height);
-            ctx.drawImage(texture.lower, object[i].x, object[i].height + object[i].space, object[i].width, canvas.height - (object[i].height + object[i].space));
+            let obj = object[i];
+            ctx.drawImage(texture.upper, obj.x, 0, obj.width, obj.height);
+            ctx.drawImage(texture.lower, obj.x, obj.height + obj.space, obj.width, canvas.height - (obj.height + obj.space));
         }
     }
 }

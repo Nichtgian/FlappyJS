@@ -5,6 +5,7 @@ class Player {
         this.size = 40;
         this.gravity = 0;
         this.life = 1;
+        this.score = 0;
     }
 
     calc() {
@@ -13,7 +14,7 @@ class Player {
     }
 
     render() {
-        ctx.drawImage(texture.player, this.x, this.y, this.size, this.size);
+        ctx.drawImage(animation.player.texture, this.x, this.y, this.size, this.size);
     }
 
     flap() {
