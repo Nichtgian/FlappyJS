@@ -10,12 +10,12 @@ let texture = {
     life: new Image()
 };
 
-texture.ground.src = "./texture/ground.png";
-texture.sky.src = "./texture/sky-day.png";
-texture.upper.src = "./texture/green-upper.png";
-texture.lower.src = "./texture/green-lower.png";
-texture.player.src = "./texture/player.png";
-texture.life.src = "./texture/life.png";
+texture.ground.src = "./texture/map/ground.png";
+texture.sky.src = "./texture/map/sky-day.png";
+texture.upper.src = "./texture/map/green-upper.png";
+texture.lower.src = "./texture/map/green-lower.png";
+texture.player.src = "./texture/animation/player/fly0.png";
+texture.life.src = "./texture/map/life.png";
 
 texture.life.onload = function () {
     Game.interval = setInterval(Game.run, 1000 / Game.fps);
