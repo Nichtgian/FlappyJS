@@ -17,15 +17,19 @@ class Object {
     }
 
     move() {
-        this.x -= this.speed;
-        if (this.x < 0 - this.width) {
-            object.shift();
-            object.push(new Object(canvas.width, 20, 5, 70));
+        for (let i = 0; i < object.length; i++) {
+            object[i].x -= object[i].speed;
+            if (object[i].x < 0 - object[i].width) {
+                object.shift();
+                object.push(new Object(canvas.width, 20, 5, 70));
+            }
         }
     }
 
     render() {
-        ctx.fillRect(this.x, 0, this.width, this.height);
-        ctx.fillRect(this.x, this.height + this.space, this.width, canvas.height - (this.height + this.space));
+        for (let i = 0; i < object.length; i++) {
+            ctx.fillRect(object[i].x, 0, object[i].width, object[i].height);
+            ctx.fillRect(object[i].x, object[i].height + object[i].space, object[i].width, canvas.height - (object[i].height + object[i].space));
+        }
     }
 }

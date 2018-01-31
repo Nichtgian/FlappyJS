@@ -28,9 +28,8 @@ resize();
 function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    console.log(canvas.width + " " + canvas.height);
     document.getElementById("turn").style.display = "none";
-    if (canvas.height > canvas.width) {
+    if (canvas.height < canvas.width) {
         document.getElementById("turn").style.display = "block";
     }
 }

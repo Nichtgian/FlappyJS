@@ -26,8 +26,8 @@ class Player {
     }
 
     ground() {
-        if (this.y + this.size >= canvas.height) {
-            this.y = canvas.height - this.size;
+        if (this.y + this.size >= canvas.height - (canvas.height / 100 * 5)) {
+            this.y = canvas.height - canvas.height / 100 * 5 - this.size;
             this.gravity = 0;
         }
     }
