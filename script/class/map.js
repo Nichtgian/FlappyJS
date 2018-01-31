@@ -1,6 +1,6 @@
 class Map {
     constructor() {
-        this.gravity = 1.5;
+        this.gravity = 1.2;
         this.sky = {speed: 2, blocks: []};
         this.ground = {speed: 5, blocks: []};
         this.initSky();
