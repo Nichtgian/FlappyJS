@@ -13,7 +13,7 @@ class Player {
     }
 
     render() {
-        ctx.fillRect(this.x, this.y, this.size, this.size);
+        ctx.drawImage(texture.player, this.x, this.y, this.size, this.size);
     }
 
     flap() {

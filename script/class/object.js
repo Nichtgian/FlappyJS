@@ -28,8 +28,8 @@ class Object {
 
     render() {
         for (let i = 0; i < object.length; i++) {
-            ctx.fillRect(object[i].x, 0, object[i].width, object[i].height);
-            ctx.fillRect(object[i].x, object[i].height + object[i].space, object[i].width, canvas.height - (object[i].height + object[i].space));
+            ctx.drawImage(texture.upper, object[i].x, 0, object[i].width, object[i].height);
+            ctx.drawImage(texture.lower, object[i].x, object[i].height + object[i].space, object[i].width, canvas.height - (object[i].height + object[i].space));
         }
     }
 }

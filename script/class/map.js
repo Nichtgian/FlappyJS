@@ -3,6 +3,8 @@ class Map {
         this.gravity = 1.2;
         this.sky = {speed: 2, blocks: []};
         this.ground = {speed: 5, blocks: []};
+        this.skywidth = canvas.width / 1.5;
+        this.groundwidth = 168;
         this.initSky();
         this.initGround();
     }
@@ -20,19 +22,19 @@ class Map {
     renderSky() {
         let sky = texture.sky;
         for (let i = 0; i < this.ground.blocks.length; i++) {
-            ctx.drawImage(sky, this.sky.blocks[i], 0, 909, canvas.height);
+            ctx.drawImage(sky, this.sky.blocks[i], 0, this.skywidth, canvas.height);
         }
     }
 
     renderGround() {
         let ground = texture.ground;
         for (let i = 0; i < this.ground.blocks.length; i++) {
-            ctx.drawImage(ground, this.ground.blocks[i], canvas.height / 100 * 95);
+            ctx.drawImage(ground, this.ground.blocks[i], canvas.height / 100 * 95, ground.width, canvas.height / 100 * 5);
         }
     }
 
     initSky() {
-        for (let x = 0; x <= canvas.width; x += 909) {
+        for (let x = 0; x <= canvas.width; x += this.skywidth) {
             this.sky.blocks.push(x);
         }
     }
@@ -46,19 +48,19 @@ class Map {
     }
 
     addSky() {
-        if (this.sky.blocks[this.sky.blocks.length - 1] + 909 <= canvas.width) {
-            this.sky.blocks.push(this.sky.blocks[this.sky.blocks.length - 1] + 909);
+        if (this.sky.blocks[this.sky.blocks.length - 1] + this.skywidth <= canvas.width) {
+            this.sky.blocks.push(this.sky.blocks[this.sky.blocks.length - 1] + this.skywidth);
         }
     }
 
     removeSky() {
-        if (this.sky.blocks[0] + 909 <= 0) {
+        if (this.sky.blocks[0] + this.skywidth <= 0) {
             this.sky.blocks.shift();
         }
     }
 
     initGround() {
-        for (let x = 0; x <= canvas.width; x += 335) {
+        for (let x = 0; x <= canvas.width; x += this.groundwidth) {
             this.ground.blocks.push(x);
         }
     }
@@ -72,13 +74,13 @@ class Map {
     }
 
     addGround() {
-        if (this.ground.blocks[this.ground.blocks.length - 1] + 335 <= canvas.width) {
-            this.ground.blocks.push(this.ground.blocks[this.ground.blocks.length - 1] + 335);
+        if (this.ground.blocks[this.ground.blocks.length - 1] + this.groundwidth <= canvas.width) {
+            this.ground.blocks.push(this.ground.blocks[this.ground.blocks.length - 1] + this.groundwidth);
         }
     }
 
     removeGround() {
-        if (this.ground.blocks[0] + 335 <= 0) {
+        if (this.ground.blocks[0] + this.groundwidth <= 0) {
             this.ground.blocks.shift();
         }
     }

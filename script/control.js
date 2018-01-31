@@ -5,4 +5,3 @@ canvas.addEventListener('click', function() {
 canvas.addEventListener('touchmove', function() {
     player.flap();
 }, false);
-

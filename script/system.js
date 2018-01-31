@@ -11,9 +11,9 @@ let texture = {
 };
 
 texture.ground.src = "./texture/ground.png";
-texture.sky.src = "./texture/sky.png";
-texture.upper.src = "./texture/upper.png";
-texture.lower.src = "./texture/lower.png";
+texture.sky.src = "./texture/sky-day.png";
+texture.upper.src = "./texture/green-upper.png";
+texture.lower.src = "./texture/green-lower.png";
 texture.player.src = "./texture/player.png";
 texture.life.src = "./texture/life.png";
 
@@ -23,14 +23,19 @@ texture.life.onload = function () {
 
 window.addEventListener("resize", resize, false);
 
+let oldSize = {x: null, y: null};
+
 resize();
 
 function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    document.getElementById("turn").style.display = "none";
-    if (canvas.height < canvas.width) {
-        document.getElementById("turn").style.display = "block";
+    if (oldSize.x == null) {
+        oldSize.x = canvas.width;
+        oldSize.y = canvas.height;
+    }
+    if ((oldSize.x > canvas.width && oldSize.y > canvas.height) || (oldSize.x < canvas.width && oldSize.y < canvas.height)) {
+        location.reload();
     }
 }
 
