@@ -8,16 +8,20 @@ class Object {
         this.width = 100;
     }
 
-    getHeight(minHeight, maxHeight) {
-        return Math.floor(Math.random() * maxHeight) + minHeight;
+    getHeight(min, max) {
+        return Math.floor(Math.random() * (canvas.height / 100 * max)) + (canvas.height / 100 * min);
     }
 
     getSpace(space)  {
-        return Math.floor(Math.random() * 400) + space;
+        return Math.floor(Math.random() * (canvas.height / 100 * space)) + player.size * 5;
     }
 
     move() {
         this.x -= this.speed;
+        if (this.x < 0 - this.width) {
+            object.shift();
+            object.push(new Object(canvas.width, 20, 5, 70));
+        }
     }
 
     render() {

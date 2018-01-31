@@ -21,6 +21,20 @@ texture.life.onload = function () {
     Game.interval = setInterval(Game.run, 1000 / Game.fps);
 }
 
+window.addEventListener("resize", resize, false);
+
+resize();
+
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    console.log(canvas.width + " " + canvas.height);
+    document.getElementById("turn").style.display = "none";
+    if (canvas.height > canvas.width) {
+        document.getElementById("turn").style.display = "block";
+    }
+}
+
 let Game = {
     fps: 50,
     interval: null,
@@ -31,4 +45,3 @@ Game.run = function() {
     update();
     draw();
 }
-

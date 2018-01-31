@@ -2,7 +2,7 @@ class Player {
     constructor() {
         this.x = 20;
         this.y = 50;
-        this.size = 100;
+        this.size = 40;
         this.gravity = 0;
         this.life = 1;
     }
@@ -17,7 +17,7 @@ class Player {
     }
 
     flap() {
-        this.gravity = -25;
+        this.gravity = -20;
     }
 
     fall() {

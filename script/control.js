@@ -2,6 +2,7 @@ canvas.addEventListener('click', function() {
     player.flap();
 }, false);
 
-canvas.addEventListener('touchstart', function() {
+canvas.addEventListener('touchmove', function() {
     player.flap();
 }, false);
+

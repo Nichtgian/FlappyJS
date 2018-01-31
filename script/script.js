@@ -1,17 +1,23 @@
 let map = new Map();
 let player = new Player();
-let ob = new Object(200, 200, 50, 400);
+let object = [];
+object.push(new Object(canvas.width, 20, 5, 70));
+object.push(new Object(canvas.width + canvas.width / 2, 20, 5, 70));
 
 
 function update() {
     player.calc();
+    for (let i = 0; i < object.length; i++) {
+        object[i].move();
+    }
 }
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.render();
-    ob.render();
-
+    for (let i = 0; i < object.length; i++) {
+        object[i].render();
+    }
 }
 
 /*let map = new World();
