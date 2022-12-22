@@ -1,3 +1,3 @@
 # Flappy Swag 
 
-[Play It](https://nichtgian.github.io/flappme/)
+[Play It](https://nichtgian.github.io/FlappyJS/)
